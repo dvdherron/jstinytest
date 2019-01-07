@@ -27,7 +27,7 @@
 //[yes]The range of elements processed by findIndex is set before the first invocation of callback. 
 
 //[yes]Elements appended to the array after the call to findIndex begins will not be processed by callback
-//[TODO]If an existing, unvisited element of the array is changed by callback, its value passed to the callback will be the     value at the time that findIndex visits that element's index
+//[yes]If an existing, unvisited element of the array is changed by callback, its value passed to the callback will be the     value at the time that findIndex visits that element's index
 //[yes]elements that are deleted are still visited.
 
 function findIndex(originalArray, callback, optionalThisObject) {
