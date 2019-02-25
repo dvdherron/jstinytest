@@ -10,55 +10,7 @@ but instead returns a new array.
 Syntax:
 var new_array = old_array.concat([value1[, value2[, ...[, valueN]]]])
 
-Prototype implementation:
-
-version 1: (only takes one argument)
-
-var myConcat = function ( valueN ) {
-  var concatArray = [];
-  var length = valueN.length;
-
-  if (argume)
-  
-  for (var i = 0; i < length; i++) {
-    concatArray.push(valueN[i]);
-  }
-return concatArray;
-}
-
-
- function concat (originalValue) {
-   var concatArray = [];
-   var inObject = Object.keys;
-   if (element in valueN) {
-
-   }
-   for (var i = 0; i < length; i++) {
-		concatArray.push(originalValue[i]);
-		}
-	}
- }
-
- filter example:
- function filter(originalArray, callback, optionalThis) {
-    var filterCallback = callback;
-    var length = originalArray.length;
-
-		if (optionalThis) {
-			filterCallback = callback.bind(optionalThis);
-		}
-
-	var filteredArray = [];
-
-		for (var i = 0; i < length; i++) {
-		if	(filterCallback(originalArray[i], i, originalArray)) {
-			filteredArray.push(originalArray[i]);
-		}
-	}
-
-	return filteredArray;
-};  
-
+ 
 Parameters:
   valueN: Arrays and/or values to concatenate into a new array. 
   If valueN is undefined, concat returns a shallow copy of the existing array on which it is called. 
