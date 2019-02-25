@@ -1,64 +1,62 @@
 <script src="../simpletest.js"></script>
 <script>
-// find([1,2,3], function(element, index, array) {
-    // return element > 1;
-// })
+
+/*
+  find([1,2,3], function(element, index, array) {
+      return element > 1;
+  })
 
 
-// Example 1
-// callback has access to ith element
-// find([1,2,3], function(number) {
-//  console.log(number);
-// });
+  Example 1
+  callback has access to ith element
+  find([1,2,3], function(number) {
+  console.log(number);
+  });
 
-// Example 2
-// callback has access to element's index
-// find([1,2,3], function(number, index) {
-//  console.log(index);
-// });
+  Example 2
+  callback has access to element's index
+  find([1,2,3], function(number, index) {
+  console.log(index);
+  });
 
-// Example 3
-// callback has access to original array
-// find([1,2,3], function(element, index, originalArray) {
-//  console.log(originalArray);
-// });
+  Example 3
+  callback has access to original array
+  find([1,2,3], function(element, index, originalArray) {
+  console.log(originalArray);
+  });
 
-// Example 5
-// callback has access to optional this
-// find([1,2,3], function(element, index, originalArray) {
-//  console.log(this.name);
-// }, {name: 'david'});
+  Example 5
+  callback has access to optional this
+  find([1,2,3], function(element, index, originalArray) {
+  console.log(this.name);
+  }, {name: 'david'});
 
-// Example 6
-// callback returns one element
-// find([1,2,3], function(element, index, originalArray) {
-//  return element > 1;
+  Example 6
+  callback returns one element
+  find([1,2,3], function(element, index, originalArray) {
+  return element > 1;
 
-// expected output --> 2
+  expected output --> 2
 
-// callback parameters
-  // Element
-  // index
-  // Array
+  callback parameters
+    Element
+    index
+    Array
 
-  // optionalThis
+    optionalThis
 
-  // It should return the value of the first element in the array that satisfies the provided testing function
-    //Otherwise, undefined is returned.
+    It should return the value of the first element in the array that satisfies the provided testing function
+      Otherwise, undefined is returned.
 
-  //executes the callback function once for each index of the array until it finds one where callback returns a true value.
-  //callback is invoked for every index of the array from 0 to length - 1 
-  // callback is invoked for all indexes, not just those that have been assigned values
-  //The range of elements processed by find is set before the first invocation of callback. 
-  //Elements that are appended to the array after the call to find begins will not be visited by callback. 
-  // If an existing, unvisited element of the array is changed by callback, its value passed to the visiting callback will be the value at the time that find visits that element's index; 
-  // elements that are deleted are still visited.
+    executes the callback function once for each index of the array until it finds one where callback returns a true value.
+    callback is invoked for every index of the array from 0 to length - 1 
+    callback is invoked for all indexes, not just those that have been assigned values
+    The range of elements processed by find is set before the first invocation of callback. 
+    Elements that are appended to the array after the call to find begins will not be visited by callback. 
+    If an existing, unvisited element of the array is changed by callback, its value passed to the visiting callback will be the value at the time that find visits that element's index; 
+    elements that are deleted are still visited.
   
-
-  
-  
-  
-  
+  */
 
 function find(array, callback, optionalThisObject) {
   var findcallback = callback;

@@ -1,34 +1,36 @@
 <script src="../simpletest.js"></script>
 <script>
 
+/*
+  findIndex(function (element, index, array) {
+    return element < [some criteria];
+  });
 
-// //findIndex(function (element, index, array) {
-// 	return element < /*some criteria*/;
-// });
 
+  returns the index of the first element in the array that satisfies the provided testing function.
+  Otherwise, it returns -1, indicating no element passed the test.
 
-// returns the index of the first element in the array that satisfies the provided testing function.
-// Otherwise, it returns -1, indicating no element passed the test.
+  callback parameters
+    element
+    index
+    array
+  optionalThis
 
-//callback parameters
-  //element
-  //index
-  //array
-//optionalThis
+  [yes]executes the callback function once for every array index 0..length-1 (inclusive) in the array
+  [yes]finds first matching index where callback returns a truthy value (a value that coerces to true).
+  [yes]immediately returns that found element's index
 
-//[yes]executes the callback function once for every array index 0..length-1 (inclusive) in the array
-//[yes]finds first matching index where callback returns a truthy value (a value that coerces to true).
-//[yes]immediately returns that found element's index
+  [yes]If the callback never returns a truthy value...returns -1
+  [yes]If the array's length is 0...returns -1
 
-//[yes]If the callback never returns a truthy value...returns -1
-//[yes]If the array's length is 0...returns -1
+  [yes]in sparse arrays the callback is called even for indexes of entries not present in the array.
+  [yes]The range of elements processed by findIndex is set before the first invocation of callback. 
 
-//[yes]in sparse arrays the callback is called even for indexes of entries not present in the array.
-//[yes]The range of elements processed by findIndex is set before the first invocation of callback. 
+  [yes]Elements appended to the array after the call to findIndex begins will not be processed by callback
+  [yes]If an existing, unvisited element of the array is changed by callback, its value passed to the callback will be the     value at the time that findIndex visits that element's index
+  [yes]elements that are deleted are still visited.
 
-//[yes]Elements appended to the array after the call to findIndex begins will not be processed by callback
-//[TODO]If an existing, unvisited element of the array is changed by callback, its value passed to the callback will be the     value at the time that findIndex visits that element's index
-//[yes]elements that are deleted are still visited.
+  */
 
 function findIndex(originalArray, callback, optionalThisObject) {
   var length = originalArray.length;

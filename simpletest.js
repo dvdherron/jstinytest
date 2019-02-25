@@ -58,11 +58,11 @@
           var testAction = tests[testName];
           try {
               testAction.apply(this);
-              console.log('%c ' + testName, "color: green; font-weight: bold;" );
+              console.log('%c ' + testName, "color: #38b738; font-weight: bold;" );
               //console.log("%cMy stylish message", "color: green; font-style: strong;");
           } catch (e) {
               failures++;
-              console.groupCollapsed('%c ' + testName, "color: red; font-weight: bold;");
+              console.groupCollapsed('%c ' + testName, "color: #f42222; font-weight: bold;");
               console.error(e.stack);
               console.groupEnd();
           }

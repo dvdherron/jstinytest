@@ -1,48 +1,49 @@
 <script src="../simpletest.js"></script>
 <script>
 
-//tests whether all elements in the array pass the test implemented by the provided function.
+/*
+tests whether all elements in the array pass the test implemented by the provided function.
 
-//Function signature
-  //arr.every(callback(element[, index[, array]])[, thisArg])
+Function signature
+  arr.every(callback(element[, index[, array]])[, thisArg])
 
-  // Prototype implementation:
-    // function every(array, callback, opitionalThis) {
-    //   for (var i = 0; i < array.length; i++) {
-    //    testResult = callback(array[i], i, array);
-    //   }
-    //   if (!testResult) {
-    //       return false;
-    //  }
-    // }
-    //   return true;
+  Prototype implementation:
+    function every(array, callback, opitionalThis) {
+      for (var i = 0; i < array.length; i++) {
+       testResult = callback(array[i], i, array);
+      }
+      if (!testResult) {
+          return false;
+     }
+    }
+      return true;
     
     
 
 
-// callback takes three arguments
-  // The current element being processed in the array.
-  // The index of the current element being processed in the array.
-  // The array every was called upon.
+callback takes three arguments
+  The current element being processed in the array.
+  The index of the current element being processed in the array.
+  The array every was called upon.
   
-  // thisArgOptional
+  thisArgOptional
 
-  // Return value
-    // true if the callback function returns a truthy value for every array element; otherwise, false.
-
-
-//[yes]executes the provided callback function once for each element present in the array until it finds one where callback returns a falsy value
-//[yes]If such an element is found, the every method immediately returns false
-//[yes]if callback returns a truthy value for all elements, every returns true
-//[yes]callback is not invoked for indexes which have never been assigned values.
-
-//[yes]The range of elements processed by every is set before the first invocation of callback. 
-//[yes]Elements which are appended to the array after the call to every begins will not be visited by callback.
-//[yesIf existing elements of the array are changed, their value as passed to callback will be the value at the time every visits them
-//[yes]elements that are deleted are not visited.
+  Return value
+    true if the callback function returns a truthy value for every array element; otherwise, false.
 
 
-//[yes]returns true for any condition put on an empty array.
+[yes]executes the provided callback function once for each element present in the array until it finds one where callback returns a falsy value
+[yes]If such an element is found, the every method immediately returns false
+[yes]if callback returns a truthy value for all elements, every returns true
+[yes]callback is not invoked for indexes which have never been assigned values.
+
+[yes]The range of elements processed by every is set before the first invocation of callback. 
+[yes]Elements which are appended to the array after the call to every begins will not be visited by callback.
+[yesIf existing elements of the array are changed, their value as passed to callback will be the value at the time every visits them
+[yes]elements that are deleted are not visited.
+[yes]returns true for any condition put on an empty array.
+
+*/
 
 function every(array, callback, optionalThisObject) {
   var length = array.length;

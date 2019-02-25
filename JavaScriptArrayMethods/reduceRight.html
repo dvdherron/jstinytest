@@ -1,46 +1,49 @@
 <script src="../simpletest.js"></script>
 <script>
 
-//reduceRight() applies a function against an accumulator and each value of the array (from right-to-left) to reduce it to a single value.
+/*
+  reduceRight() applies a function against an accumulator and each value of the array (from right-to-left) to reduce it to a single value.
 
-//reduceRight(array, callback[, initialValue])
+  reduceRight(array, callback[, initialValue])
 
-//Prototype implementation:
-    // function reduceRight(array, callback, initialValue) {
-    //   var resultSoFar = initialValue;
-    //   for (var i = array[array.length - 1]; i > 0; i--) {
-    //     resultSoFar = callback(resultSoFar, array[i], i, array);
-    //   }
-    //    return resultSoFar;
-    // }
+  Prototype implementation:
+      function reduceRight(array, callback, initialValue) {
+        var resultSoFar = initialValue;
+        for (var i = array[array.length - 1]; i > 0; i--) {
+          resultSoFar = callback(resultSoFar, array[i], i, array);
+        }
+        return resultSoFar;
+      }
 
-// Callback parameters
+  Callback parameters
 
-//Four arguments
-  // Accumulator/previous value/resultSoFar 
-  // CurrentValue/array[i]
-    // currentIndex(i) (The index of the current element being processed in the array.)
-    // array(array) (The array reduceRight() was called upon.)
-  
-  
-    //InitialValue (Object to use as the first argument to the first call of the callback. If no initial value is supplied, the last element in the array will be used. Calling reduce on an empty array without an initial value is an error.)
+  Four arguments
+    Accumulator/previous value/resultSoFar 
+    CurrentValue/array[i]
+      currentIndex(i) (The index of the current element being processed in the array.)
+      array(array) (The array reduceRight() was called upon.)
     
-//Return value
-    // The value that results from the reduction.
+    
+      InitialValue (Object to use as the first argument to the first call of the callback. If no initial value is supplied, the last element in the array will be used. Calling reduce on an empty array without an initial value is an error.)
+      
+  Return value
+      The value that results from the reduction.
 
-//Requirements
-  //[done]If initialValue, executes the callback function array.length times. 
-  //[done]If no initialValue, executes the callback function array.length -1 times. 
-  //[done]If an initialValue was provided in the call to reduceRight, then accumulator will be equal to initialValue and 
-  //[done]If an initialValue, currentValue will be equal to array[array.length -1]
-  //[done]If no initialValue was provided, then accumulator will be equal to the last value in the array
-  //[done]If no initialValue, currentValue will be equal to the second-to-last value.
-  //[done]If no initialValue and the array is empty, a TypeError should be thrown.
-  //[done]Callback applies a function against an accumulator and each value of the array (from right-to-left) to reduce it to a single value.
-  //[done]Callback accepts four arguments: the initial value (or value from the previous callback call), the value of the current element, the current index, and the array over which iteration is occurring.
-  //[done]Callback excludes holes in the array
-  //[done]If initialValue is provided but the array is empty, the solo value would be returned without calling callback.
-  //[done]If the array has only one element (regardless of position) and no initialValue was provided the solo value would be returned without calling callback.
+  Requirements
+    [done]If initialValue, executes the callback function array.length times. 
+    [done]If no initialValue, executes the callback function array.length -1 times. 
+    [done]If an initialValue was provided in the call to reduceRight, then accumulator will be equal to initialValue and 
+    [done]If an initialValue, currentValue will be equal to array[array.length -1]
+    [done]If no initialValue was provided, then accumulator will be equal to the last value in the array
+    [done]If no initialValue, currentValue will be equal to the second-to-last value.
+    [done]If no initialValue and the array is empty, a TypeError should be thrown.
+    [done]Callback applies a function against an accumulator and each value of the array (from right-to-left) to reduce it to a single value.
+    [done]Callback accepts four arguments: the initial value (or value from the previous callback call), the value of the current element, the current index, and the array over which iteration is occurring.
+    [done]Callback excludes holes in the array
+    [done]If initialValue is provided but the array is empty, the solo value would be returned without calling callback.
+    [done]If the array has only one element (regardless of position) and no initialValue was provided the solo value would be returned without calling callback.
+
+*/
   
   
 function reduceRight (array, callback, initialValue) {

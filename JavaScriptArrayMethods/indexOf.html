@@ -1,0 +1,118 @@
+<script src="../simpletest.js"></script>
+<script>
+
+/*
+The indexOf() method returns the first index at which a given element can be found in the array, or -1 if it is not present.
+
+Syntax: arr.indexOf(searchElement[, fromIndex])
+
+Description:
+
+indexOf() compares searchElement to elements of the Array using strict equality (the same method used by the === or triple-equals operator).
+
+Parameters:
+  searchElement: element to locate in the array.
+
+  (Optional)
+  fromIndex: 
+    The index to start the search at. If the index is greater than or equal to the array's length, -1 is returned, which means the array will not be searched. If the provided index value is a negative number, it is taken as the offset from the end of the array. Note: if the provided index is negative, the array is still searched from front to back. If the provided index is 0, then the whole array will be searched. Default: 0 (entire array is searched).
+
+  Return Value:
+    The first index of the matching element in the array; -1 if not found.
+
+  
+  prototype implementation
+
+  function indexOf (array, searchElement, [startingIndex]) {
+     scan the array
+     if provided, start at a certain index
+
+     return first index of element found in the array
+    
+    otherwise
+     return index of first index where a match is found
+
+  }
+
+  Requirements:
+   [done] It should return the first index at which a given element can be found in the array.
+   [done] If a given element is not found in the array, it should return -1.
+
+   [done] If the startingIndex is greater than or equal to the array's length, -1 is returned
+   [done] If the provided index value is a negative number, it is taken as the offset from the end of the array
+     if the provided index is negative, the array is still searched from front to back
+
+*/
+
+function indexOf(array, searchElement, startingIndex) {
+  var length = array.length;
+  var startingPoint = 0;
+
+  // if array is empty, return -1
+  if (length === 0) {
+    return -1;
+  }
+
+  // checks for startingIndex argument
+  if (arguments.length > 2) {
+    
+    //start searching at the startingIndex;
+    startingPoint = startingIndex;
+  
+  if (startingPoint >= length) {
+    return -1;
+  }
+
+  // checks if startingIndex is a negative number
+  if (startingPoint < 0) {
+    startingPoint = length - (Math.abs(startingPoint));
+    // if array.length - absolute value of startingIndex is still negative, just start at index 0. 
+    if (startingPoint < 0) {
+      startingPoint = 0;
+      }
+    }
+  } 
+
+  for (var i = startingPoint; i < length; i++) {
+    if (i in array && array[i] === searchElement) {
+      return i;
+    }
+  }
+  return -1;
+  
+};
+
+
+tests({
+  'It should search an array and return the first instance of an element that matches the searchElement with strict equality.': function () {
+    var testArray = [1,2,3];
+    var indexMatch = indexOf(testArray, 2);
+    eq(testArray[indexMatch] === 2, true);
+  },
+  'If no match is found, it should return -1.': function () {
+    var indexMatch = indexOf([1,2,3], 4);
+    eq(indexMatch, -1);
+  },
+  'If should return only the index of the first element matched.': function () {
+    var indexMatch = indexOf([1,2,2], 2);
+    eq(indexMatch, 1);
+  },
+  'It should have access to a startingIndex.': function () {
+    var indexMatch = indexOf([3,2,3], 3, 1);
+    eq(indexMatch, 2);
+  },
+  'If the startingIndex is greater than or equal to the array.length, -1 is returned.': function () {
+    var indexMatch = indexOf(['a','b','c'], 'c', 3);
+    eq(indexMatch, -1);
+  },
+  'If the provided index value is a negative number, it is taken as the offset from the end of the array. (array.length - Math.abs(negativeIndex))': function () {
+    var indexMatch = indexOf(['a','b','a'], 'a', -2);
+    eq(indexMatch, 2);
+  },
+  'If array is empty, it should return -1': function () {
+    var indexMatch = indexOf([]);
+    eq(indexMatch, -1);
+  },
+});
+
+</script>
