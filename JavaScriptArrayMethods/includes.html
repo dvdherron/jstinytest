@@ -52,17 +52,13 @@ function includes (array, valueToFind, optionalFromIndex) {
     }
   }
 
-  // allows strict equality match of NaN elements
-  function sameValueZero(x, y) {
-        return x === y || (typeof x === 'number' && typeof y === 'number' && isNaN(x) && isNaN(y));
-      }
 
   for (var i = startingIndex; i < length; i++) {
-    if (sameValueZero (array[i], valueToFind)) {
+    if (array[i] === valueToFind || Object.is(array[i], valueToFind)) {
       return true;
     }
   }
-  
+
   return false;
 };
 
