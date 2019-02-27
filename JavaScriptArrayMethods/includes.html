@@ -54,6 +54,7 @@ function includes (array, valueToFind, optionalFromIndex) {
 
 
   for (var i = startingIndex; i < length; i++) {
+    // checks strict equality for elements and makes sure NaN matches return true too.
     if (array[i] === valueToFind || Object.is(array[i], valueToFind)) {
       return true;
     }
