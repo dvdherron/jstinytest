@@ -72,12 +72,12 @@ tests({
 },
   'It should return elements from left to right, in the order in which arguments appear.': function () {
     var result = myConcat([1, 2, 3], ["a", "b", "c"]);
-  eq(result[0], 1,
-     result[1], 2,
-     result[2], 3,
-     result[3], "a",
-     result[4], "b",
-     result[5], "c");
+  eq(result[0], 1);
+  eq(result[1], 2);
+  eq(result[2], 3);
+  eq(result[3], "a");
+  eq(result[4], "b");
+  eq(result[5], "c");
 },
   'It does not recurse into nested array arguments.': function () {
     var nestedArray = [[1], 2];
@@ -87,9 +87,9 @@ tests({
   'It should copy the values of strings, booleans, and numbers into the new array.': function () {
     var testArray = ['string', true, 3];
     var result = myConcat(testArray);
-  eq(result[0], "string",
-     result[1], true,
-     result[2], 3);
+  eq(result[0], "string");
+  eq(result[1], true);
+  eq(result[2], 3);
 },
   'It should ignore empty indices.': function () {
     var testArray = [1,,3];
